@@ -26,6 +26,7 @@ export const fetchPlugin = (inputCode: string) => {
 
         const { data, request } = await axios.get(args.path);
 
+        console.log(args.path);
         const result: esbuild.OnLoadResult = {
           loader: 'jsx',
           contents: data,

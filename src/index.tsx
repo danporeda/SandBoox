@@ -12,10 +12,8 @@ const App = () => {
   const startService = async () => {
     ref.current = await esbuild.startService({
       worker: true,
-      wasmURL: '/esbuild.wasm'
+      wasmURL: 'https://unpkg.com/esbuild-wasm@0.8.27/esbuild.wasm',
     });
-
-    
   }
 
   useEffect(() => {
@@ -41,9 +39,13 @@ const App = () => {
       },
     })
 
-    console.log(result);
-
     setCode(result.outputFiles[0].text);
+
+    try {
+      eval(result.outputFiles[0].text)
+    } catch (err) {
+      alert(err)
+    }
   };
 
   return (
@@ -52,6 +54,7 @@ const App = () => {
       <div>
         <button onClick={onClick}>Submit</button>
       </div>
+      <iframe sandbox="" src="/test.html" />
       <pre>{code}</pre>
     </div>
   )
