@@ -54,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "ajv": "^7.2.4",
     "assert": "^2.1.0",
     "constants-browserify": "^1.0.0",
     "os-browserify": "^0.3.0",
