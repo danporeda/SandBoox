@@ -25,24 +25,23 @@ const bundle = async (rawCode: string) => {
         global: 'window',
       },
     });
-    // console.log(result);
+    
     return {
       code: result.outputFiles[0].text,
-      err: 'no error: try executed',
+      err: '',
     } 
   } catch (err: any) {
-    return {
-      code: 'no code: catch executed',
-      err: err.message,
+    if (err instanceof Error) {
+      return {
+        code: '',
+        err: err.message,
+      }
+    } else {
+      throw err;
     }
-  
-    // if (err instanceof Error) {
-    //   return {
-    //     code: '',
-    //     err: err.message,
-    //   }
-    // } else {
-    //   throw err;
+    // return {
+    //   code: 'no code: catch executed',
+    //   err: err.message,
     // }
   }
   

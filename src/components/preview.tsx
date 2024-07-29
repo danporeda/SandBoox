@@ -4,6 +4,7 @@ import { useRef, useEffect } from 'react';
 interface PreviewProps {
   code: string;
   err: string;
+  setErr: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const html = `
@@ -15,7 +16,6 @@ const html = `
           const handleError = (err) => {
             const root = document.querySelector('#root');
             root.innerHTML = '<div style="color: red;"><h4>Runtime Error</h4>' + err + '</div>';
-            console.error(err);
           };
 
           window.addEventListener('error', (event) => {
@@ -27,6 +27,7 @@ const html = `
             try {
               eval(event.data);
             } catch (err) {
+              // window.top.postMessage(err, '*');
               handleError(err);
             }
           }, false);
@@ -35,9 +36,16 @@ const html = `
     </html>
   `;
 
-const Preview: React.FC<PreviewProps> = ({ code, err }) => {
+const Preview: React.FC<PreviewProps> = ({ code, err, setErr }) => {
   const iframe = useRef<any>();
 
+  useEffect(() => {
+    const handleMessage = (event: any) => {
+      setErr(event.data.message);
+    }
+    window.addEventListener('message', handleMessage, false);
+  }, [setErr])
+  
   useEffect(() => {
     iframe.current.srcdoc = html;
     setTimeout(() => {
@@ -45,6 +53,7 @@ const Preview: React.FC<PreviewProps> = ({ code, err }) => {
     }, 50)
   }, [code]);
   
+
   return (
     <div className="preview-wrapper">
       <iframe 
