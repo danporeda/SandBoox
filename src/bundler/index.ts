@@ -39,10 +39,6 @@ const bundle = async (rawCode: string) => {
     } else {
       throw err;
     }
-    // return {
-    //   code: 'no code: catch executed',
-    //   err: err.message,
-    // }
   }
   
 };
