@@ -18,8 +18,25 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
     const { data, order } = state.cells;
 
     const codeCells = order.filter((cellId) => data[cellId].type === 'code');
-    console.log(codeCells);
-    const cumulativeCode = [];
+    const cumulativeCode = [
+      `
+        import _React from 'react';
+        import _ReactDOM from 'react-dom';
+        const show = (value) => {
+          const root = document.querySelector('#root');
+
+          if (typeof value === 'object') {
+            if (value.$$typeof && value.props) {
+              _ReactDOM.render(value, root);
+            } else {
+              root.innerHTML = JSON.stringify(value);
+            }
+          } else {
+            root.innerHTML = value;
+          }
+        };
+      `,
+    ];
     for (let c of codeCells) {
       cumulativeCode.push(data[c].content);
       if (c === cell.id) {
@@ -27,25 +44,24 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
       }
     }
 
-    return cumulativeCode.join(' ');
+    return cumulativeCode;
   })
-  console.log(cumulativeCode);
 
   useEffect(() => {
     if (!bundle) {
-      createBundle(cell.id, cell.content);
+      createBundle(cell.id, cumulativeCode.join('\n'));
       return;
     }
 
     const timeout = setTimeout(async () => {
-      createBundle(cell.id, cell.content)
+      createBundle(cell.id, cumulativeCode.join('\n'))
     }, 1000);
 
     return () => {
       clearTimeout(timeout);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cell.content, cell.id, createBundle])
+  }, [cumulativeCode.join('\n'), cell.id, createBundle])
 
   return (
     <Resizable direction="vertical">
