@@ -23,8 +23,8 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
+    "@sandboox/local-client": "^1.0.0",
     "express": "^4.19.2",
-    "http-proxy-middleware": "^3.0.0",
-    "@sandboox/local-client": "^0.1.0"
+    "http-proxy-middleware": "^3.0.0"
   }
 }
