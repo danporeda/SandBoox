@@ -1,2 +1,0 @@
-(self.webpackChunkjbook=self.webpackChunkjbook||[]).push([[75337],{75337:()=>{Prism.languages.racket=Prism.languages.extend("scheme",{"lambda-parameter":{pattern:/([(\[]lambda\s+[(\[])[^()\[\]'\s]+/,lookbehind:!0}}),Prism.languages.insertBefore("racket","string",{lang:{pattern:/^#lang.+/m,greedy:!0,alias:"keyword"}}),Prism.languages.rkt=Prism.languages.racket}}]);
-//# sourceMappingURL=75337.6c385779.chunk.js.map

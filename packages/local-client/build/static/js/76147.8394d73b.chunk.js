@@ -1,2 +1,0 @@
-(self.webpackChunkjbook=self.webpackChunkjbook||[]).push([[76147],{76147:()=>{Prism.languages.csv={value:/[^\r\n,"]+|"(?:[^"]|"")*"(?!")/,punctuation:/,/}}}]);
-//# sourceMappingURL=76147.8394d73b.chunk.js.map

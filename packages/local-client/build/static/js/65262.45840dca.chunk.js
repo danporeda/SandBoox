@@ -1,2 +1,0 @@
-(self.webpackChunkjbook=self.webpackChunkjbook||[]).push([[65262],{65262:()=>{Prism.languages.hpkp={directive:{pattern:/\b(?:(?:includeSubDomains|preload|strict)(?: |;)|pin-sha256="[a-zA-Z\d+=/]+"|(?:max-age|report-uri)=|report-to )/,alias:"keyword"},safe:{pattern:/\b\d{7,}\b/,alias:"selector"},unsafe:{pattern:/\b\d{1,6}\b/,alias:"function"}}}}]);
-//# sourceMappingURL=65262.45840dca.chunk.js.map
