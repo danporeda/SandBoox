@@ -17,11 +17,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@sandboox/local-api": "^1.0.0",
-    "commander": "^12.1.0"
+    "@sandboox/local-client": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.3.0",
+    "commander": "^11.0.0",
+    "@sandboox/local-api": "^1.0.0",
     "esbuild": "0.8.26",
     "typescript": "^5.5.4"
   }
