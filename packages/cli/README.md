@@ -15,3 +15,10 @@ It's a twofer.
 ## Run
 
 `npx sandboox serve`
+
+
+## Usage
+
+### Code cells
+use the built-in show() function to display code in the output window
+`show(<h1>Hello Guy</h1>)`
