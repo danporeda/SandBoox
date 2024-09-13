@@ -19,6 +19,6 @@ It's a twofer.
 
 ## Usage
 
-### Code cells
-use the built-in show() function to display code in the output window
-![sample screen](sample-screen.jpeg)
+### Code cells & Text cells
+use the built-in **show()** function to display code in the output window
+![sample screen](https://github.com/danporeda/SandBoox/blob/main/sample.png)
